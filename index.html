@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex Dev — Creative Developer Portfolio</title>
+  <meta name="description" content="3D animated portfolio of a full-stack creative developer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- 3D Canvas (fixed background) -->
+  <canvas id="webgl"></canvas>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <span class="loader__text">&lt;/&gt;</span>
+      <div class="loader__bar"><div class="loader__progress" id="loaderProgress"></div></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="#hero" class="nav__logo">&lt;alex.dev /&gt;</a>
+    <ul class="nav__links">
+      <li><a href="#about" data-nav>About</a></li>
+      <li><a href="#skills" data-nav>Skills</a></li>
+      <li><a href="#projects" data-nav>Projects</a></li>
+      <li><a href="#contact" data-nav>Contact</a></li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="section hero" id="hero">
+      <div class="hero__content">
+        <p class="hero__eyebrow reveal">Hi, my name is</p>
+        <h1 class="hero__title reveal">
+          <span class="hero__name glitch" data-text="Alex Developer">Alex Developer</span>
+        </h1>
+        <h2 class="hero__subtitle reveal">
+          I build <span class="typed" id="typed"></span><span class="typed-cursor">|</span>
+        </h2>
+        <p class="hero__desc reveal">
+          Full-stack developer crafting immersive digital experiences with
+          modern web technologies, 3D graphics, and a passion for clean code.
+        </p>
+        <div class="hero__cta reveal">
+          <a href="#projects" class="btn btn--primary">View My Work</a>
+          <a href="#contact" class="btn btn--ghost">Get In Touch</a>
+        </div>
+      </div>
+      <div class="hero__scroll">
+        <span class="hero__scroll-text">scroll</span>
+        <span class="hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="section__num">01.</span> About Me</h2>
+        <div class="about__grid">
+          <div class="about__text reveal">
+            <p>
+              I'm a developer who lives at the intersection of <strong>engineering</strong> and
+              <strong>design</strong>. For the past 5+ years I've been building web applications,
+              real-time 3D experiences, and developer tools used by thousands of people.
+            </p>
+            <p>
+              My happy place is deep in the browser — pushing WebGL, WebGPU and modern
+              JavaScript to their limits while keeping things fast, accessible and delightful.
+            </p>
+            <ul class="about__list">
+              <li>5+ years professional experience</li>
+              <li>40+ shipped projects</li>
+              <li>Open-source contributor</li>
+              <li>Remote-friendly, worldwide</li>
+            </ul>
+          </div>
+          <div class="about__card reveal">
+            <div class="terminal">
+              <div class="terminal__bar">
+                <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                <span class="terminal__title">alex@dev: ~</span>
+              </div>
+              <pre class="terminal__body"><code><span class="t-green">$</span> whoami
+<span class="t-cyan">alex — creative developer</span>
+
+<span class="t-green">$</span> cat stack.json
+{
+  <span class="t-yellow">"frontend"</span>: [<span class="t-cyan">"React"</span>, <span class="t-cyan">"Three.js"</span>],
+  <span class="t-yellow">"backend"</span>:  [<span class="t-cyan">"Node"</span>, <span class="t-cyan">"Python"</span>],
+  <span class="t-yellow">"cloud"</span>:    [<span class="t-cyan">"AWS"</span>, <span class="t-cyan">"Docker"</span>]
+}
+
+<span class="t-green">$</span> uptime
+<span class="t-cyan">caffeinated and shipping ☕</span><span class="cursor-blink">▊</span></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="section__num">02.</span> Skills</h2>
+        <div class="skills__grid">
+          <div class="skill-card reveal" data-tilt>
+            <div class="skill-card__icon">⚛️</div>
+            <h3>Frontend</h3>
+            <p>React, Vue, TypeScript, Three.js, WebGL, GSAP, Tailwind</p>
+            <div class="skill-card__bar"><span style="--w:95%"></span></div>
+          </div>
+          <div class="skill-card reveal" data-tilt>
+            <div class="skill-card__icon">🖥️</div>
+            <h3>Backend</h3>
+            <p>Node.js, Python, Go, PostgreSQL, Redis, GraphQL, REST</p>
+            <div class="skill-card__bar"><span style="--w:90%"></span></div>
+          </div>
+          <div class="skill-card reveal" data-tilt>
+            <div class="skill-card__icon">☁️</div>
+            <h3>DevOps &amp; Cloud</h3>
+            <p>AWS, Docker, Kubernetes, CI/CD, Terraform, Vercel</p>
+            <div class="skill-card__bar"><span style="--w:85%"></span></div>
+          </div>
+          <div class="skill-card reveal" data-tilt>
+            <div class="skill-card__icon">🎨</div>
+            <h3>3D &amp; Creative</h3>
+            <p>Three.js, Blender, Shaders (GLSL), WebGPU, Motion Design</p>
+            <div class="skill-card__bar"><span style="--w:88%"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="section__num">03.</span> Featured Projects</h2>
+        <div class="projects__grid">
+          <article class="project-card reveal" data-tilt>
+            <div class="project-card__top">
+              <span class="project-card__folder">📁</span>
+              <div class="project-card__links">
+                <a href="#" aria-label="GitHub">⌥</a>
+                <a href="#" aria-label="Live">↗</a>
+              </div>
+            </div>
+            <h3>Nebula Dashboard</h3>
+            <p>Real-time analytics dashboard rendering 1M+ data points with WebGL-accelerated charts and live WebSocket streams.</p>
+            <ul class="project-card__tags">
+              <li>React</li><li>WebGL</li><li>Node.js</li>
+            </ul>
+          </article>
+          <article class="project-card reveal" data-tilt>
+            <div class="project-card__top">
+              <span class="project-card__folder">📁</span>
+              <div class="project-card__links">
+                <a href="#" aria-label="GitHub">⌥</a>
+                <a href="#" aria-label="Live">↗</a>
+              </div>
+            </div>
+            <h3>Voxel World Engine</h3>
+            <p>Procedurally generated voxel sandbox running in the browser at 60fps, with greedy meshing and infinite terrain.</p>
+            <ul class="project-card__tags">
+              <li>Three.js</li><li>WASM</li><li>Workers</li>
+            </ul>
+          </article>
+          <article class="project-card reveal" data-tilt>
+            <div class="project-card__top">
+              <span class="project-card__folder">📁</span>
+              <div class="project-card__links">
+                <a href="#" aria-label="GitHub">⌥</a>
+                <a href="#" aria-label="Live">↗</a>
+              </div>
+            </div>
+            <h3>DevFlow CLI</h3>
+            <p>Open-source CLI that automates repo scaffolding, environments and deploy pipelines. 2k+ GitHub stars.</p>
+            <ul class="project-card__tags">
+              <li>Go</li><li>Docker</li><li>CI/CD</li>
+            </ul>
+          </article>
+          <article class="project-card reveal" data-tilt>
+            <div class="project-card__top">
+              <span class="project-card__folder">📁</span>
+              <div class="project-card__links">
+                <a href="#" aria-label="GitHub">⌥</a>
+                <a href="#" aria-label="Live">↗</a>
+              </div>
+            </div>
+            <h3>Shader Playground</h3>
+            <p>Live GLSL editor with hot-reloading shaders, uniform inspector, and one-click sharing of fragment art.</p>
+            <ul class="project-card__tags">
+              <li>GLSL</li><li>WebGL2</li><li>Vue</li>
+            </ul>
+          </article>
+          <article class="project-card reveal" data-tilt>
+            <div class="project-card__top">
+              <span class="project-card__folder">📁</span>
+              <div class="project-card__links">
+                <a href="#" aria-label="GitHub">⌥</a>
+                <a href="#" aria-label="Live">↗</a>
+              </div>
+            </div>
+            <h3>SyncSpace</h3>
+            <p>Collaborative whiteboard with CRDT-based conflict-free sync, cursors presence and offline-first storage.</p>
+            <ul class="project-card__tags">
+              <li>TypeScript</li><li>CRDT</li><li>PostgreSQL</li>
+            </ul>
+          </article>
+          <article class="project-card reveal" data-tilt>
+            <div class="project-card__top">
+              <span class="project-card__folder">📁</span>
+              <div class="project-card__links">
+                <a href="#" aria-label="GitHub">⌥</a>
+                <a href="#" aria-label="Live">↗</a>
+              </div>
+            </div>
+            <h3>AI Code Reviewer</h3>
+            <p>GitHub bot that reviews pull requests with LLM-powered suggestions, hooked into Actions and Checks API.</p>
+            <ul class="project-card__tags">
+              <li>Python</li><li>LLM</li><li>GitHub API</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="container container--narrow">
+        <h2 class="section__title section__title--center reveal"><span class="section__num">04.</span> Get In Touch</h2>
+        <p class="contact__lead reveal">
+          I'm currently open to new opportunities and interesting collaborations.
+          Whether you have a question, a project, or just want to say hi — my inbox is always open.
+        </p>
+        <div class="contact__actions reveal">
+          <a class="btn btn--primary btn--lg" href="mailto:hello@alex.dev">Say Hello 👋</a>
+        </div>
+        <ul class="contact__socials reveal">
+          <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a></li>
+          <li><a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Designed &amp; built with <span class="t-cyan">Three.js</span> · © 2026 Alex Developer</p>
+    </footer>
+  </main>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
